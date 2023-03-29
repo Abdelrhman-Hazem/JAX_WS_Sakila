@@ -1,0 +1,48 @@
+body {
+    background-color: powderblue;
+    margin: 50px auto; 
+    text-align: center;
+}
+h1 {
+    color: blue;
+}
+/* p {
+    color: red;
+} */
+header, footer {
+    background-color: #808080;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+}
+header li, footer li {
+    display: inline-block;
+    margin-right: 10px;
+}
+table{
+    border: 3px solid black;
+    border-width: 3px;
+    background-color: rgb(154, 238, 197);
+    margin: 0px auto; 
+    text-align: left;
+}
+table td{
+    border: 1px solid black;
+    /* border-width: 30px;
+    background-color: rgb(154, 228, 238); */
+    margin: 2px auto; 
+    text-align: left;
+}
+table th{
+    border: 3px solid black;
+    /* border-width: 30px;
+    background-color: rgb(154, 228, 238); */
+    font-size: 18;
+    margin: 3px auto; 
+    text-align: left;
+}
+
+/* nav li {
+    display: inline-block;
+    margin-left: 10px;
+} */
