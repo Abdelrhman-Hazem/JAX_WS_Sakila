@@ -1,32 +1,46 @@
-<web-app xmlns= "https://jakarta.ee/xml/ns/jakartaee"   
-xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"   
-xsi:schemaLocation= "https://jakarta.ee/xml/ns/jakartaee                       
-            https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"   
-version= "5.0"   
-metadata-complete= "true"> 
-<servlet>
-    <servlet-name>log</servlet-name>   
-    <servlet-class>com.myservlet.DBpublishData</servlet-class> 
-</servlet> 
-<servlet-mapping> 
-    <servlet-name>log</servlet-name>
-    <url-pattern>/login</url-pattern>     
-</servlet-mapping>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This web.xml file is not required when using Servlet 3.0 container,
+     see implementation details http://jersey.java.net/nonav/documentation/latest/jax-rs.html -->
+<!--<web-app version="2.5"-->
+<!--         xmlns="http://java.sun.com/xml/ns/javaee"-->
+<!--         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee-->
+<!--         http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">-->
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+         https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0"
+         metadata-complete="true">
 
-    <!-- <resource-env-ref>
-        <resource-env-ref-name>jdbc/yourdatasourcename</resource-env-ref-name>
-        <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
-        <url>jdbc:mysql://localhost:3306/sakila</url>
-        <username>yourusername</username>
-        <password>yourpassword</password>
-        <maxActive>10</maxActive>
-        <maxIdle>5</maxIdle>
-        <maxWait>10000</maxWait>
-        <removeAbandoned>true</removeAbandoned>
-        <removeAbandonedTimeout>60</removeAbandonedTimeout>
-    </resource-env-ref> -->
-  
-    <!-- <welcome-file-list>
-        <welcome-file>search_form.jsp</welcome-file>
-    </welcome-file-list> -->
-</web-app>   
+<!--    REST-->
+<!--    <servlet>-->
+<!--        <servlet-name>Jersey_Web_Application</servlet-name>-->
+<!--        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>-->
+<!--        <init-param>-->
+<!--            <param-name>jersey.config.server.provider.packages</param-name>-->
+<!--            <param-value>com.iti.jets.sakilaJax</param-value>-->
+<!--        </init-param>-->
+<!--        <load-on-startup>1</load-on-startup>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>Jersey_Web_Application</servlet-name>-->
+<!--        <url-pattern>/webapi/rest/*</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--    <listener>-->
+<!--        <listener-class>com.iti.jets.sakilaJax.util.SessionListenerForEntityManager</listener-class>-->
+<!--    </listener>-->
+
+
+<!--    SOAP-->
+    <listener>
+        <listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>JAXWSServlet</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+</web-app>

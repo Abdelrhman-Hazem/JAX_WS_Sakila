@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<endpoints xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime"
+           version="2.0">
+
+    <endpoint
+            name="ActorServices"
+            implementation="com.iti.jets.sakilaJax.controllers.soap.ActorController"
+            url-pattern="/webapi/soap/actor" />
+
+    <endpoint
+            name="AddressServices"
+            implementation="com.iti.jets.sakilaJax.controllers.soap.AddressController"
+            url-pattern="/webapi/soap/address" />
+
+    <endpoint
+            name="CategoryServices"
+            implementation="com.iti.jets.sakilaJax.controllers.soap.CategoryController"
+            url-pattern="/webapi/soap/category" />
+
+    <endpoint
+            name="CityServices"
+            implementation="com.iti.jets.sakilaJax.controllers.soap.CityController"
+            url-pattern="/webapi/soap/city" />
+
+    <endpoint
+            name="CountryServices"
+            implementation="com.iti.jets.sakilaJax.controllers.soap.CountryController"
+            url-pattern="/webapi/soap/country" />
+
+    <endpoint
+            name="LanguageServices"
+            implementation="com.iti.jets.sakilaJax.controllers.soap.LanguageController"
+            url-pattern="/webapi/soap/language" />
+
+    <endpoint
+            name="StoreServices"
+            implementation="com.iti.jets.sakilaJax.controllers.soap.StoreController "
+            url-pattern="/webapi/soap/store" />
+
+</endpoints>
