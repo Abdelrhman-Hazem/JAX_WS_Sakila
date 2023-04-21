@@ -13,24 +13,24 @@
          version="5.0"
          metadata-complete="true">
 
-<!--    REST-->
-<!--    <servlet>-->
-<!--        <servlet-name>Jersey_Web_Application</servlet-name>-->
-<!--        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>-->
-<!--        <init-param>-->
-<!--            <param-name>jersey.config.server.provider.packages</param-name>-->
-<!--            <param-value>com.iti.jets.sakilaJax</param-value>-->
-<!--        </init-param>-->
-<!--        <load-on-startup>1</load-on-startup>-->
-<!--    </servlet>-->
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>Jersey_Web_Application</servlet-name>-->
-<!--        <url-pattern>/webapi/rest/*</url-pattern>-->
-<!--    </servlet-mapping>-->
+    REST
+    <servlet>
+        <servlet-name>Jersey_Web_Application</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>com.iti.jets.sakilaJax</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Jersey_Web_Application</servlet-name>
+        <url-pattern>/webapi/rest/*</url-pattern>
+    </servlet-mapping>
 
-<!--    <listener>-->
-<!--        <listener-class>com.iti.jets.sakilaJax.util.SessionListenerForEntityManager</listener-class>-->
-<!--    </listener>-->
+    <listener>
+        <listener-class>com.iti.jets.sakilaJax.util.SessionListenerForEntityManager</listener-class>
+    </listener>
 
 
 <!--    SOAP-->
