@@ -13,20 +13,23 @@ import java.util.Set;
  */
 @XmlRootElement
 public class StaffDto implements Serializable {
-    private final boolean active;
-    private final Short staffId;
-    private final StoreDtoSimple store;
-    private final AddressDto address;
-    private final String firstName;
-    private final String lastName;
-    private final byte[] picture;
-    private final String email;
-    private final String username;
-    private final String password;
-    private final Timestamp lastUpdate;
-    private final Set<PaymentDtoSimple> payments;
-    private final Set<StoreDtoSimple> stores;
-    private final Set<RentalDtoSimple> rentals;
+    private boolean active;
+    private Short staffId;
+    private StoreDtoSimple store;
+    private AddressDto address;
+    private String firstName;
+    private String lastName;
+    private byte[] picture;
+    private String email;
+    private String username;
+    private String password;
+    private Timestamp lastUpdate;
+    private Set<PaymentDtoSimple> payments;
+    private Set<StoreDtoSimple> stores;
+    private Set<RentalDtoSimple> rentals;
+
+    public StaffDto() {
+    }
 
     public StaffDto(boolean active, Short staffId, StoreDtoSimple store, AddressDto address, String firstName, String lastName, byte[] picture, String email, String username, String password, Timestamp lastUpdate, Set<PaymentDtoSimple> payments, Set<StoreDtoSimple> stores, Set<RentalDtoSimple> rentals) {
         this.active = active;
@@ -42,6 +45,62 @@ public class StaffDto implements Serializable {
         this.lastUpdate = lastUpdate;
         this.payments = payments;
         this.stores = stores;
+        this.rentals = rentals;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public void setStaffId(Short staffId) {
+        this.staffId = staffId;
+    }
+
+    public void setStore(StoreDtoSimple store) {
+        this.store = store;
+    }
+
+    public void setAddress(AddressDto address) {
+        this.address = address;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setLastUpdate(Timestamp lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
+    public void setPayments(Set<PaymentDtoSimple> payments) {
+        this.payments = payments;
+    }
+
+    public void setStores(Set<StoreDtoSimple> stores) {
+        this.stores = stores;
+    }
+
+    public void setRentals(Set<RentalDtoSimple> rentals) {
         this.rentals = rentals;
     }
 

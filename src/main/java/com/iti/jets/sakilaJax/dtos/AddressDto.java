@@ -12,15 +12,18 @@ import java.util.Objects;
  */
 @XmlRootElement
 public class AddressDto implements Serializable {
-    private final Short addressId;
-    private final CityDtoSimple city;
-    private final String address;
-    private final String address2;
-    private final String district;
-    private final String postalCode;
-    private final String phone;
-    private final byte[] location;
-    private final Timestamp lastUpdate;
+    private Short addressId;
+    private CityDtoSimple city;
+    private String address;
+    private String address2;
+    private String district;
+    private String postalCode;
+    private String phone;
+    private byte[] location;
+    private Timestamp lastUpdate;
+
+    public AddressDto() {
+    }
 
     public AddressDto(Short addressId, CityDtoSimple city, String address, String address2, String district, String postalCode, String phone, byte[] location, Timestamp lastUpdate) {
         this.addressId = addressId;
@@ -31,6 +34,42 @@ public class AddressDto implements Serializable {
         this.postalCode = postalCode;
         this.phone = phone;
         this.location = location;
+        this.lastUpdate = lastUpdate;
+    }
+
+    public void setAddressId(Short addressId) {
+        this.addressId = addressId;
+    }
+
+    public void setCity(CityDtoSimple city) {
+        this.city = city;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setAddress2(String address2) {
+        this.address2 = address2;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setLocation(byte[] location) {
+        this.location = location;
+    }
+
+    public void setLastUpdate(Timestamp lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 

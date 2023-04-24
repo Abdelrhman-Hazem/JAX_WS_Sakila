@@ -12,15 +12,34 @@ import java.util.Objects;
  */
 @XmlRootElement
 public class RentalDtoSimple implements Serializable {
-    private final Integer rentalId;
-    private final Timestamp rentalDate;
-    private final Timestamp returnDate;
-    private final Timestamp lastUpdate;
+    private Integer rentalId;
+    private Timestamp rentalDate;
+    private Timestamp returnDate;
+    private Timestamp lastUpdate;
+
+    public RentalDtoSimple() {
+    }
 
     public RentalDtoSimple(Integer rentalId, Timestamp rentalDate, Timestamp returnDate, Timestamp lastUpdate) {
         this.rentalId = rentalId;
         this.rentalDate = rentalDate;
         this.returnDate = returnDate;
+        this.lastUpdate = lastUpdate;
+    }
+
+    public void setRentalId(Integer rentalId) {
+        this.rentalId = rentalId;
+    }
+
+    public void setRentalDate(Timestamp rentalDate) {
+        this.rentalDate = rentalDate;
+    }
+
+    public void setReturnDate(Timestamp returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    public void setLastUpdate(Timestamp lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 

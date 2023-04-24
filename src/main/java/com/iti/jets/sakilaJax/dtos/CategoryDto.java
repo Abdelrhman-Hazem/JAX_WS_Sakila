@@ -13,15 +13,34 @@ import java.util.Set;
  */
 @XmlRootElement
 public class CategoryDto implements Serializable {
-    private final Short categoryId;
-    private final String name;
-    private final Timestamp lastUpdate;
-    private final Set<FilmCategoryDto> filmCategories;
+    private Short categoryId;
+    private String name;
+    private Timestamp lastUpdate;
+    private Set<FilmCategoryDto> filmCategories;
+
+    public CategoryDto() {
+    }
 
     public CategoryDto(Short categoryId, String name, Timestamp lastUpdate, Set<FilmCategoryDto> filmCategories) {
         this.categoryId = categoryId;
         this.name = name;
         this.lastUpdate = lastUpdate;
+        this.filmCategories = filmCategories;
+    }
+
+    public void setCategoryId(Short categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLastUpdate(Timestamp lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
+    public void setFilmCategories(Set<FilmCategoryDto> filmCategories) {
         this.filmCategories = filmCategories;
     }
 

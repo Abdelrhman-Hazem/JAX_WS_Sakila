@@ -11,11 +11,22 @@ import java.util.Objects;
  */
 @XmlRootElement
 public class FilmCategoryIdDto implements Serializable {
-    private final short categoryId;
-    private final short filmId;
+    private short categoryId;
+    private short filmId;
+
+    public FilmCategoryIdDto() {
+    }
 
     public FilmCategoryIdDto(short categoryId, short filmId) {
         this.categoryId = categoryId;
+        this.filmId = filmId;
+    }
+
+    public void setCategoryId(short categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public void setFilmId(short filmId) {
         this.filmId = filmId;
     }
 

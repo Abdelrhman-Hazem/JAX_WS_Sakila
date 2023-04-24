@@ -8,6 +8,7 @@ import com.iti.jets.sakilaJax.mappers.interfaces.RentalMapper;
 import com.iti.jets.sakilaJax.mappers.interfaces.StaffMapper;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 import javax.annotation.processing.Generated;
 import java.sql.Timestamp;
@@ -23,12 +24,12 @@ import java.util.Set;
 @ApplicationScoped
 public class StaffMapperImpl implements StaffMapper {
 
-    @Inject
-    private AddressMapper addressMapper;
-    @Inject
-    private PaymentMapper paymentMapper;
-    @Inject
-    private RentalMapper rentalMapper;
+//    @Inject
+    private AddressMapper addressMapper = new AddressMapperImpl();
+//    @Inject
+    private PaymentMapper paymentMapper = new PaymentMapperImpl();
+//    @Inject
+    private RentalMapper rentalMapper = new RentalMapperImpl();
 
     @Override
     public Staff toEntity(StaffDto staffDto) {

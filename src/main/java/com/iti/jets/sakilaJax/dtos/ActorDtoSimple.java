@@ -11,13 +11,28 @@ import java.util.Objects;
  */
 @XmlRootElement
 public class ActorDtoSimple implements Serializable {
-    private final Short actorId;
-    private final String firstName;
-    private final String lastName;
+    private Short actorId;
+    private String firstName;
+    private String lastName;
 
     public ActorDtoSimple(Short actorId, String firstName, String lastName) {
         this.actorId = actorId;
         this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public ActorDtoSimple() {
+    }
+
+    public void setActorId(Short actorId) {
+        this.actorId = actorId;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 

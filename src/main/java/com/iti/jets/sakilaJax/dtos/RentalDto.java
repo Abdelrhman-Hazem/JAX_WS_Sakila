@@ -13,14 +13,17 @@ import java.util.Set;
  */
 @XmlRootElement
 public class RentalDto implements Serializable {
-    private final Integer rentalId;
-    private final StaffDtoSimple staff;
-    private final CustomerDtoSimple customer;
-    private final InventoryDto inventory;
-    private final Timestamp rentalDate;
-    private final Timestamp returnDate;
-    private final Timestamp lastUpdate;
-    private final Set<PaymentDtoSimple> payments;
+    private Integer rentalId;
+    private StaffDtoSimple staff;
+    private CustomerDtoSimple customer;
+    private InventoryDto inventory;
+    private Timestamp rentalDate;
+    private Timestamp returnDate;
+    private Timestamp lastUpdate;
+    private Set<PaymentDtoSimple> payments;
+
+    public RentalDto() {
+    }
 
     public RentalDto(Integer rentalId, StaffDtoSimple staff, CustomerDtoSimple customer, InventoryDto inventory, Timestamp rentalDate, Timestamp returnDate, Timestamp lastUpdate, Set<PaymentDtoSimple> payments) {
         this.rentalId = rentalId;
@@ -30,6 +33,38 @@ public class RentalDto implements Serializable {
         this.rentalDate = rentalDate;
         this.returnDate = returnDate;
         this.lastUpdate = lastUpdate;
+        this.payments = payments;
+    }
+
+    public void setRentalId(Integer rentalId) {
+        this.rentalId = rentalId;
+    }
+
+    public void setStaff(StaffDtoSimple staff) {
+        this.staff = staff;
+    }
+
+    public void setCustomer(CustomerDtoSimple customer) {
+        this.customer = customer;
+    }
+
+    public void setInventory(InventoryDto inventory) {
+        this.inventory = inventory;
+    }
+
+    public void setRentalDate(Timestamp rentalDate) {
+        this.rentalDate = rentalDate;
+    }
+
+    public void setReturnDate(Timestamp returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    public void setLastUpdate(Timestamp lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
+    public void setPayments(Set<PaymentDtoSimple> payments) {
         this.payments = payments;
     }
 

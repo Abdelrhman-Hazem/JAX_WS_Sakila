@@ -13,17 +13,40 @@ import java.util.Set;
  */
 @XmlRootElement
 public class InventoryDto implements Serializable {
-    private final Integer inventoryId;
-    private final StoreDtoSimple store;
-    private final FilmDtoSimple film;
-    private final Timestamp lastUpdate;
-    private final Set<RentalDtoSimple> rentals;
+    private Integer inventoryId;
+    private StoreDtoSimple store;
+    private FilmDtoSimple film;
+    private Timestamp lastUpdate;
+    private Set<RentalDtoSimple> rentals;
+
+    public InventoryDto() {
+    }
 
     public InventoryDto(Integer inventoryId, StoreDtoSimple store, FilmDtoSimple film, Timestamp lastUpdate, Set<RentalDtoSimple> rentals) {
         this.inventoryId = inventoryId;
         this.store = store;
         this.film = film;
         this.lastUpdate = lastUpdate;
+        this.rentals = rentals;
+    }
+
+    public void setInventoryId(Integer inventoryId) {
+        this.inventoryId = inventoryId;
+    }
+
+    public void setStore(StoreDtoSimple store) {
+        this.store = store;
+    }
+
+    public void setFilm(FilmDtoSimple film) {
+        this.film = film;
+    }
+
+    public void setLastUpdate(Timestamp lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
+    public void setRentals(Set<RentalDtoSimple> rentals) {
         this.rentals = rentals;
     }
 

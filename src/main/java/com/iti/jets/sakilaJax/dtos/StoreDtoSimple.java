@@ -11,11 +11,22 @@ import java.util.Objects;
  */
 @XmlRootElement
 public class StoreDtoSimple implements Serializable {
-    private final Short storeId;
-    private final AddressDto address;
+    private Short storeId;
+    private AddressDto address;
+
+    public StoreDtoSimple() {
+    }
 
     public StoreDtoSimple(Short storeId, AddressDto address) {
         this.storeId = storeId;
+        this.address = address;
+    }
+
+    public void setStoreId(Short storeId) {
+        this.storeId = storeId;
+    }
+
+    public void setAddress(AddressDto address) {
         this.address = address;
     }
 

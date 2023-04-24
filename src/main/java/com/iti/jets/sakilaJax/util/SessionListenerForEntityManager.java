@@ -9,16 +9,15 @@ import jakarta.servlet.http.HttpSessionListener;
 public class SessionListenerForEntityManager implements ServletRequestListener {
     @Override
     public void requestInitialized(ServletRequestEvent se) {
-
         RequestThreadLocal.getInstance().set(EntityManagerFactorySingleton.getInstance().createEntityManager());
         System.out.println("-------------Entity Manager Created------------------");
     }
 
     @Override
     public void requestDestroyed(ServletRequestEvent se) {
-        System.out.println("-------------Entity Manager Destroyed------------------");
         RequestThreadLocal.getInstance().get().close();
         RequestThreadLocal.getInstance().remove();
+        System.out.println("-------------Entity Manager Destroyed------------------");
     }
 }
 

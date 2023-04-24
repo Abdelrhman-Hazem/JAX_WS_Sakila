@@ -12,15 +12,34 @@ import java.util.Objects;
  */
 @XmlRootElement
 public class FilmActorDto implements Serializable {
-    private final FilmActorIdDto id;
-    private final FilmDtoSimple film;
-    private final ActorDtoSimple actor;
-    private final Timestamp lastUpdate;
+    private  FilmActorIdDto id;
+    private  FilmDtoSimple film;
+    private  ActorDtoSimple actor;
+    private  Timestamp lastUpdate;
+
+    public FilmActorDto() {
+    }
 
     public FilmActorDto(FilmActorIdDto id, FilmDtoSimple film, ActorDtoSimple actor, Timestamp lastUpdate) {
         this.id = id;
         this.film = film;
         this.actor = actor;
+        this.lastUpdate = lastUpdate;
+    }
+
+    public void setId(FilmActorIdDto id) {
+        this.id = id;
+    }
+
+    public void setFilm(FilmDtoSimple film) {
+        this.film = film;
+    }
+
+    public void setActor(ActorDtoSimple actor) {
+        this.actor = actor;
+    }
+
+    public void setLastUpdate(Timestamp lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 

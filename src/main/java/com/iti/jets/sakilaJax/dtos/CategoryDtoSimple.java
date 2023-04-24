@@ -11,11 +11,22 @@ import java.util.Objects;
  */
 @XmlRootElement
 public class CategoryDtoSimple implements Serializable {
-    private final Short categoryId;
-    private final String name;
+    private Short categoryId;
+    private String name;
+
+    public CategoryDtoSimple() {
+    }
 
     public CategoryDtoSimple(Short categoryId, String name) {
         this.categoryId = categoryId;
+        this.name = name;
+    }
+
+    public void setCategoryId(Short categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
 

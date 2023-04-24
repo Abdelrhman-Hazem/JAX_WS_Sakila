@@ -13,15 +13,34 @@ import java.util.Set;
  */
 @XmlRootElement
 public class CountryDto implements Serializable {
-    private final Short countryId;
-    private final String country;
-    private final Timestamp lastUpdate;
-    private final Set<CityDtoSimple> cities;
+    private Short countryId;
+    private String country;
+    private Timestamp lastUpdate;
+    private Set<CityDtoSimple> cities;
+
+    public CountryDto() {
+    }
 
     public CountryDto(Short countryId, String country, Timestamp lastUpdate, Set<CityDtoSimple> cities) {
         this.countryId = countryId;
         this.country = country;
         this.lastUpdate = lastUpdate;
+        this.cities = cities;
+    }
+
+    public void setCountryId(Short countryId) {
+        this.countryId = countryId;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public void setLastUpdate(Timestamp lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
+    public void setCities(Set<CityDtoSimple> cities) {
         this.cities = cities;
     }
 

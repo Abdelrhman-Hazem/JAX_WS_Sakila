@@ -11,11 +11,22 @@ import java.util.Objects;
  */
 @XmlRootElement
 public class CityDtoSimple implements Serializable {
-    private final Short cityId;
-    private final String city;
+    private Short cityId;
+    private String city;
+
+    public CityDtoSimple() {
+    }
 
     public CityDtoSimple(Short cityId, String city) {
         this.cityId = cityId;
+        this.city = city;
+    }
+
+    public void setCityId(Short cityId) {
+        this.cityId = cityId;
+    }
+
+    public void setCity(String city) {
         this.city = city;
     }
 

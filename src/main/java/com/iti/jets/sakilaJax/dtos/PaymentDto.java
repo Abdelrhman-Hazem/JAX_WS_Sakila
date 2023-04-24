@@ -13,13 +13,16 @@ import java.util.Objects;
  */
 @XmlRootElement
 public class PaymentDto implements Serializable {
-    private final Short paymentId;
-    private final StaffDtoSimple staff;
-    private final CustomerDtoSimple customer;
-    private final RentalDtoSimple rental;
-    private final BigDecimal amount;
-    private final Timestamp paymentDate;
-    private final Timestamp lastUpdate;
+    private Short paymentId;
+    private StaffDtoSimple staff;
+    private CustomerDtoSimple customer;
+    private RentalDtoSimple rental;
+    private BigDecimal amount;
+    private Timestamp paymentDate;
+    private Timestamp lastUpdate;
+
+    public PaymentDto() {
+    }
 
     public PaymentDto(Short paymentId, StaffDtoSimple staff, CustomerDtoSimple customer, RentalDtoSimple rental, BigDecimal amount, Timestamp paymentDate, Timestamp lastUpdate) {
         this.paymentId = paymentId;
@@ -28,6 +31,34 @@ public class PaymentDto implements Serializable {
         this.rental = rental;
         this.amount = amount;
         this.paymentDate = paymentDate;
+        this.lastUpdate = lastUpdate;
+    }
+
+    public void setPaymentId(Short paymentId) {
+        this.paymentId = paymentId;
+    }
+
+    public void setStaff(StaffDtoSimple staff) {
+        this.staff = staff;
+    }
+
+    public void setCustomer(CustomerDtoSimple customer) {
+        this.customer = customer;
+    }
+
+    public void setRental(RentalDtoSimple rental) {
+        this.rental = rental;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+
+    public void setPaymentDate(Timestamp paymentDate) {
+        this.paymentDate = paymentDate;
+    }
+
+    public void setLastUpdate(Timestamp lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 

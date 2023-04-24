@@ -24,12 +24,12 @@ import java.util.Set;
 @ApplicationScoped
 public class FilmMapperImpl implements FilmMapper {
 
-    @Inject
-    private InventoryMapper inventoryMapper;
-    @Inject
-    private FilmActorMapper filmActorMapper;
-    @Inject
-    private FilmCategoryMapper filmCategoryMapper;
+//    @Inject
+    private InventoryMapper inventoryMapper= new InventoryMapperImpl();
+//    @Inject
+    private FilmActorMapper filmActorMapper = new FilmActorMapperImpl();
+//    @Inject
+    private FilmCategoryMapper filmCategoryMapper = new FilmCategoryMapperImpl();
 
     @Override
     public Film toEntity(FilmDto filmDto) {

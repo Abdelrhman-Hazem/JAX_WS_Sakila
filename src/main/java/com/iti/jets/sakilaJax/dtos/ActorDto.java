@@ -12,15 +12,34 @@ import java.util.Set;
  */
 @XmlRootElement
 public class ActorDto implements Serializable {
-    private final Short actorId;
-    private final String firstName;
-    private final String lastName;
-    private final Set<FilmActorDto> filmActors;
+    private  Short actorId;
+    private  String firstName;
+    private  String lastName;
+    private  Set<FilmActorDto> filmActors;
 
     public ActorDto(Short actorId, String firstName, String lastName, Set<FilmActorDto> filmActors) {
         this.actorId = actorId;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.filmActors = filmActors;
+    }
+
+    public ActorDto() {
+    }
+
+    public void setActorId(Short actorId) {
+        this.actorId = actorId;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setFilmActors(Set<FilmActorDto> filmActors) {
         this.filmActors = filmActors;
     }
 

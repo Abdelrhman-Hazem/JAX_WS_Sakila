@@ -21,8 +21,8 @@ import java.util.Set;
 @ApplicationScoped
 public class CustomerMapperImpl implements CustomerMapper {
 
-    @Inject
-    private AddressMapper addressMapper;
+//    @Inject
+    private AddressMapper addressMapper = new AddressMapperImpl();
 
     @Override
     public Customer toEntity(CustomerDto customerDto) {

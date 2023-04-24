@@ -15,22 +15,25 @@ import java.util.Set;
  */
 @XmlRootElement
 public class FilmDto implements Serializable {
-    private final Short filmId;
-    private final LanguageDto languageByLanguageId;
-    private final LanguageDto languageByOriginalLanguageId;
-    private final String title;
-    private final String description;
-    private final Date releaseYear;
-    private final byte rentalDuration;
-    private final BigDecimal rentalRate;
-    private final Short length;
-    private final BigDecimal replacementCost;
-    private final String rating;
-    private final String specialFeatures;
-    private final Timestamp lastUpdate;
-    private final Set<InventoryDto> inventories;
-    private final Set<FilmActorDto> filmActors;
-    private final Set<FilmCategoryDto> filmCategories;
+    private Short filmId;
+    private LanguageDto languageByLanguageId;
+    private LanguageDto languageByOriginalLanguageId;
+    private String title;
+    private String description;
+    private Date releaseYear;
+    private byte rentalDuration;
+    private BigDecimal rentalRate;
+    private Short length;
+    private BigDecimal replacementCost;
+    private String rating;
+    private String specialFeatures;
+    private Timestamp lastUpdate;
+    private Set<InventoryDto> inventories;
+    private Set<FilmActorDto> filmActors;
+    private Set<FilmCategoryDto> filmCategories;
+
+    public FilmDto() {
+    }
 
     public FilmDto(Short filmId, LanguageDto languageByLanguageId, LanguageDto languageByOriginalLanguageId, String title, String description, Date releaseYear, byte rentalDuration, BigDecimal rentalRate, Short length, BigDecimal replacementCost, String rating, String specialFeatures, Timestamp lastUpdate, Set<InventoryDto> inventories, Set<FilmActorDto> filmActors, Set<FilmCategoryDto> filmCategories) {
         this.filmId = filmId;
@@ -48,6 +51,70 @@ public class FilmDto implements Serializable {
         this.lastUpdate = lastUpdate;
         this.inventories = inventories;
         this.filmActors = filmActors;
+        this.filmCategories = filmCategories;
+    }
+
+    public void setFilmId(Short filmId) {
+        this.filmId = filmId;
+    }
+
+    public void setLanguageByLanguageId(LanguageDto languageByLanguageId) {
+        this.languageByLanguageId = languageByLanguageId;
+    }
+
+    public void setLanguageByOriginalLanguageId(LanguageDto languageByOriginalLanguageId) {
+        this.languageByOriginalLanguageId = languageByOriginalLanguageId;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setReleaseYear(Date releaseYear) {
+        this.releaseYear = releaseYear;
+    }
+
+    public void setRentalDuration(byte rentalDuration) {
+        this.rentalDuration = rentalDuration;
+    }
+
+    public void setRentalRate(BigDecimal rentalRate) {
+        this.rentalRate = rentalRate;
+    }
+
+    public void setLength(Short length) {
+        this.length = length;
+    }
+
+    public void setReplacementCost(BigDecimal replacementCost) {
+        this.replacementCost = replacementCost;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
+    public void setSpecialFeatures(String specialFeatures) {
+        this.specialFeatures = specialFeatures;
+    }
+
+    public void setLastUpdate(Timestamp lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
+    public void setInventories(Set<InventoryDto> inventories) {
+        this.inventories = inventories;
+    }
+
+    public void setFilmActors(Set<FilmActorDto> filmActors) {
+        this.filmActors = filmActors;
+    }
+
+    public void setFilmCategories(Set<FilmCategoryDto> filmCategories) {
         this.filmCategories = filmCategories;
     }
 

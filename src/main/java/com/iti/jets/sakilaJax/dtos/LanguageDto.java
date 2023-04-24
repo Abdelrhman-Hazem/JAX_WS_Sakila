@@ -13,17 +13,40 @@ import java.util.Set;
  */
 @XmlRootElement
 public class LanguageDto implements Serializable {
-    private final Short languageId;
-    private final String name;
-    private final Timestamp lastUpdate;
-    private final Set<FilmDtoSimple> filmsForLanguageId;
-    private final Set<FilmDtoSimple> filmsForOriginalLanguageId;
+    private Short languageId;
+    private String name;
+    private Timestamp lastUpdate;
+    private Set<FilmDtoSimple> filmsForLanguageId;
+    private Set<FilmDtoSimple> filmsForOriginalLanguageId;
+
+    public LanguageDto() {
+    }
 
     public LanguageDto(Short languageId, String name, Timestamp lastUpdate, Set<FilmDtoSimple> filmsForLanguageId, Set<FilmDtoSimple> filmsForOriginalLanguageId) {
         this.languageId = languageId;
         this.name = name;
         this.lastUpdate = lastUpdate;
         this.filmsForLanguageId = filmsForLanguageId;
+        this.filmsForOriginalLanguageId = filmsForOriginalLanguageId;
+    }
+
+    public void setLanguageId(Short languageId) {
+        this.languageId = languageId;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLastUpdate(Timestamp lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
+    public void setFilmsForLanguageId(Set<FilmDtoSimple> filmsForLanguageId) {
+        this.filmsForLanguageId = filmsForLanguageId;
+    }
+
+    public void setFilmsForOriginalLanguageId(Set<FilmDtoSimple> filmsForOriginalLanguageId) {
         this.filmsForOriginalLanguageId = filmsForOriginalLanguageId;
     }
 

@@ -11,15 +11,34 @@ import java.util.Objects;
  */
 @XmlRootElement
 public class CustomerDtoSimple implements Serializable {
-    private final boolean active;
-    private final Short customerId;
-    private final String firstName;
-    private final String lastName;
+    private boolean active;
+    private Short customerId;
+    private String firstName;
+    private String lastName;
+
+    public CustomerDtoSimple() {
+    }
 
     public CustomerDtoSimple(boolean active, Short customerId, String firstName, String lastName) {
         this.active = active;
         this.customerId = customerId;
         this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public void setCustomerId(Short customerId) {
+        this.customerId = customerId;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 

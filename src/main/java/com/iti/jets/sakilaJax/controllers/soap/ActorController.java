@@ -14,7 +14,9 @@ import jakarta.ws.rs.core.Response;
 import java.util.List;
 
 @WebService
-@SOAPBinding(style = SOAPBinding.Style.RPC, use = SOAPBinding.Use.ENCODED ,parameterStyle = SOAPBinding.ParameterStyle.WRAPPED)
+@SOAPBinding(style = SOAPBinding.Style.RPC,
+            use = SOAPBinding.Use.ENCODED ,
+            parameterStyle = SOAPBinding.ParameterStyle.WRAPPED)
 public class ActorController {
 
     public Response getAllActors (int page){

@@ -13,7 +13,7 @@
          version="5.0"
          metadata-complete="true">
 
-    REST
+<!--    REST-->
     <servlet>
         <servlet-name>Jersey_Web_Application</servlet-name>
         <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
@@ -39,7 +39,7 @@
     </listener>
 
     <servlet>
-        <servlet-name>JAXWSServlet</servlet-name>
+        <servlet-name>JAXWSServlet2</servlet-name>
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>

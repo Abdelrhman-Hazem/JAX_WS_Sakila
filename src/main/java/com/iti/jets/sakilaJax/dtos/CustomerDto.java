@@ -13,17 +13,20 @@ import java.util.Set;
  */
 @XmlRootElement
 public class CustomerDto implements Serializable {
-    private final boolean active;
-    private final Short customerId;
-    private final StoreDtoSimple store;
-    private final AddressDto address;
-    private final String firstName;
-    private final String lastName;
-    private final String email;
-    private final Timestamp createDate;
-    private final Timestamp lastUpdate;
-    private final Set<PaymentDto> payments;
-    private final Set<RentalDto> rentals;
+    private boolean active;
+    private Short customerId;
+    private StoreDtoSimple store;
+    private AddressDto address;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private Timestamp createDate;
+    private Timestamp lastUpdate;
+    private Set<PaymentDto> payments;
+    private Set<RentalDto> rentals;
+
+    public CustomerDto() {
+    }
 
     public CustomerDto(boolean active, Short customerId, StoreDtoSimple store, AddressDto address, String firstName, String lastName, String email, Timestamp createDate, Timestamp lastUpdate, Set<PaymentDto> payments, Set<RentalDto> rentals) {
         this.active = active;
@@ -36,6 +39,50 @@ public class CustomerDto implements Serializable {
         this.createDate = createDate;
         this.lastUpdate = lastUpdate;
         this.payments = payments;
+        this.rentals = rentals;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public void setCustomerId(Short customerId) {
+        this.customerId = customerId;
+    }
+
+    public void setStore(StoreDtoSimple store) {
+        this.store = store;
+    }
+
+    public void setAddress(AddressDto address) {
+        this.address = address;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setCreateDate(Timestamp createDate) {
+        this.createDate = createDate;
+    }
+
+    public void setLastUpdate(Timestamp lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
+    public void setPayments(Set<PaymentDto> payments) {
+        this.payments = payments;
+    }
+
+    public void setRentals(Set<RentalDto> rentals) {
         this.rentals = rentals;
     }
 

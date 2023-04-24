@@ -19,14 +19,14 @@ import java.util.Set;
 @ApplicationScoped
 public class StoreMapperImpl implements StoreMapper {
 
-    @Inject
-    private StaffMapper staffMapper;
-    @Inject
-    private AddressMapper addressMapper;
-    @Inject
-    private InventoryMapper inventoryMapper;
-    @Inject
-    private CustomerMapper customerMapper;
+//    @Inject
+    private StaffMapper staffMapper = new StaffMapperImpl();
+//    @Inject
+    private AddressMapper addressMapper = new AddressMapperImpl();
+//    @Inject
+    private InventoryMapper inventoryMapper = new InventoryMapperImpl();
+//    @Inject
+    private CustomerMapper customerMapper = new CustomerMapperImpl();
 
     @Override
     public Store toEntity(StoreDto storeDto) {

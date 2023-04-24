@@ -11,13 +11,28 @@ import java.util.Objects;
  */
 @XmlRootElement
 public class FilmTextDto implements Serializable {
-    private final short filmId;
-    private final String title;
-    private final String description;
+    private short filmId;
+    private String title;
+    private String description;
+
+    public FilmTextDto() {
+    }
 
     public FilmTextDto(short filmId, String title, String description) {
         this.filmId = filmId;
         this.title = title;
+        this.description = description;
+    }
+
+    public void setFilmId(short filmId) {
+        this.filmId = filmId;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDescription(String description) {
         this.description = description;
     }
 

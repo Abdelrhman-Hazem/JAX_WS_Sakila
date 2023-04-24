@@ -12,15 +12,34 @@ import java.util.Objects;
  */
 @XmlRootElement
 public class FilmCategoryDto implements Serializable {
-    private final FilmCategoryIdDto id;
-    private final FilmDtoSimple film;
-    private final CategoryDtoSimple category;
-    private final Timestamp lastUpdate;
+    private FilmCategoryIdDto id;
+    private FilmDtoSimple film;
+    private CategoryDtoSimple category;
+    private Timestamp lastUpdate;
+
+    public FilmCategoryDto() {
+    }
 
     public FilmCategoryDto(FilmCategoryIdDto id, FilmDtoSimple film, CategoryDtoSimple category, Timestamp lastUpdate) {
         this.id = id;
         this.film = film;
         this.category = category;
+        this.lastUpdate = lastUpdate;
+    }
+
+    public void setId(FilmCategoryIdDto id) {
+        this.id = id;
+    }
+
+    public void setFilm(FilmDtoSimple film) {
+        this.film = film;
+    }
+
+    public void setCategory(CategoryDtoSimple category) {
+        this.category = category;
+    }
+
+    public void setLastUpdate(Timestamp lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 

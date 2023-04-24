@@ -11,15 +11,34 @@ import java.util.Objects;
  */
 @XmlRootElement
 public class StaffDtoSimple implements Serializable {
-    private final boolean active;
-    private final Short staffId;
-    private final String firstName;
-    private final String lastName;
+    private boolean active;
+    private Short staffId;
+    private String firstName;
+    private String lastName;
+
+    public StaffDtoSimple() {
+    }
 
     public StaffDtoSimple(boolean active, Short staffId, String firstName, String lastName) {
         this.active = active;
         this.staffId = staffId;
         this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public void setStaffId(Short staffId) {
+        this.staffId = staffId;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 

@@ -13,13 +13,16 @@ import java.util.Set;
  */
 @XmlRootElement
 public class StoreDto implements Serializable {
-    private final Short storeId;
-    private final StaffDtoSimple staff;
-    private final AddressDto address;
-    private final Timestamp lastUpdate;
-    private final Set<StaffDtoSimple> staffs;
-    private final Set<InventoryDto> inventories;
-    private final Set<CustomerDtoSimple> customers;
+    private Short storeId;
+    private StaffDtoSimple staff;
+    private AddressDto address;
+    private Timestamp lastUpdate;
+    private Set<StaffDtoSimple> staffs;
+    private Set<InventoryDto> inventories;
+    private Set<CustomerDtoSimple> customers;
+
+    public StoreDto() {
+    }
 
     public StoreDto(Short storeId, StaffDtoSimple staff, AddressDto address, Timestamp lastUpdate, Set<StaffDtoSimple> staffs, Set<InventoryDto> inventories, Set<CustomerDtoSimple> customers) {
         this.storeId = storeId;
@@ -28,6 +31,34 @@ public class StoreDto implements Serializable {
         this.lastUpdate = lastUpdate;
         this.staffs = staffs;
         this.inventories = inventories;
+        this.customers = customers;
+    }
+
+    public void setStoreId(Short storeId) {
+        this.storeId = storeId;
+    }
+
+    public void setStaff(StaffDtoSimple staff) {
+        this.staff = staff;
+    }
+
+    public void setAddress(AddressDto address) {
+        this.address = address;
+    }
+
+    public void setLastUpdate(Timestamp lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
+    public void setStaffs(Set<StaffDtoSimple> staffs) {
+        this.staffs = staffs;
+    }
+
+    public void setInventories(Set<InventoryDto> inventories) {
+        this.inventories = inventories;
+    }
+
+    public void setCustomers(Set<CustomerDtoSimple> customers) {
         this.customers = customers;
     }
 

@@ -12,15 +12,34 @@ import java.util.Objects;
  */
 @XmlRootElement
 public class CityDto implements Serializable {
-    private final Short cityId;
-    private final CountryDto country;
-    private final String city;
-    private final Timestamp lastUpdate;
+    private Short cityId;
+    private CountryDto country;
+    private String city;
+    private Timestamp lastUpdate;
+
+    public CityDto() {
+    }
 
     public CityDto(Short cityId, CountryDto country, String city, Timestamp lastUpdate) {
         this.cityId = cityId;
         this.country = country;
         this.city = city;
+        this.lastUpdate = lastUpdate;
+    }
+
+    public void setCityId(Short cityId) {
+        this.cityId = cityId;
+    }
+
+    public void setCountry(CountryDto country) {
+        this.country = country;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setLastUpdate(Timestamp lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 

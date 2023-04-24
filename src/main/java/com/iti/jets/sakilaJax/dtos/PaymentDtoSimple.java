@@ -13,15 +13,34 @@ import java.util.Objects;
  */
 @XmlRootElement
 public class PaymentDtoSimple implements Serializable {
-    private final Short paymentId;
-    private final BigDecimal amount;
-    private final Timestamp paymentDate;
-    private final Timestamp lastUpdate;
+    private Short paymentId;
+    private BigDecimal amount;
+    private Timestamp paymentDate;
+    private Timestamp lastUpdate;
+
+    public PaymentDtoSimple() {
+    }
 
     public PaymentDtoSimple(Short paymentId, BigDecimal amount, Timestamp paymentDate, Timestamp lastUpdate) {
         this.paymentId = paymentId;
         this.amount = amount;
         this.paymentDate = paymentDate;
+        this.lastUpdate = lastUpdate;
+    }
+
+    public void setPaymentId(Short paymentId) {
+        this.paymentId = paymentId;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+
+    public void setPaymentDate(Timestamp paymentDate) {
+        this.paymentDate = paymentDate;
+    }
+
+    public void setLastUpdate(Timestamp lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 
