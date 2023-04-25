@@ -16,17 +16,17 @@ public interface StaffMapper {
 
     @AfterMapping
     default void linkPayments(@MappingTarget Staff staff) {
-        staff.getPayments().forEach(payment -> payment.setStaff(staff));
+        if(staff.getPayments()!=null) staff.getPayments().forEach(payment -> payment.setStaff(staff));
     }
 
     @AfterMapping
     default void linkStores(@MappingTarget Staff staff) {
-        staff.getStores().forEach(store -> store.setStaff(staff));
+        if(staff.getStores()!=null)staff.getStores().forEach(store -> store.setStaff(staff));
     }
 
     @AfterMapping
     default void linkRentals(@MappingTarget Staff staff) {
-        staff.getRentals().forEach(rental -> rental.setStaff(staff));
+        if(staff.getRentals()!=null)staff.getRentals().forEach(rental -> rental.setStaff(staff));
     }
 
     Staff toEntity1(StaffDtoSimple staffDtoSimple);

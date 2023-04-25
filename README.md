@@ -1,8 +1,12 @@
 # Sakila_API
-
+This project provides both RESTful API and SOAP API that allows you to interact with the Sakila database, which is a sample database that is often used for educational purposes or for testing out new software. This API provides a user-friendly way to query and modify the data in the Sakila database, allowing you to quickly and easily integrate it into your own projects.
 
 ## Documentation
-https://documenter.getpostman.com/view/26735712/2s93Y3v19T
+REST API Documentation:
+-   https://documenter.getpostman.com/view/26735712/2s93Y3v19T
+
+SOAP API Documentation:
+-   https://documenter.getpostman.com/view/26735712/2s93Y6sz1p
 
 ## Technologies Used
 - JAX-RS

@@ -16,12 +16,12 @@ public interface CustomerMapper {
 
     @AfterMapping
     default void linkPayments(@MappingTarget Customer customer) {
-        customer.getPayments().forEach(payment -> payment.setCustomer(customer));
+        if(customer.getPayments()!=null)customer.getPayments().forEach(payment -> payment.setCustomer(customer));
     }
 
     @AfterMapping
     default void linkRentals(@MappingTarget Customer customer) {
-        customer.getRentals().forEach(rental -> rental.setCustomer(customer));
+        if(customer.getRentals()!=null)customer.getRentals().forEach(rental -> rental.setCustomer(customer));
     }
 
     Customer toEntity1(CustomerDtoSimple customerDtoSimple);

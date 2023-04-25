@@ -40,7 +40,7 @@ public class CategoryController {
 
     @PUT
     @Produces({"application/xml", "application/json"})
-    public Response UpdateCategory(@FormParam("id")Short id,@FormParam("name")String name){
+    public Response updateCategory(@FormParam("id")Short id,@FormParam("name")String name){
         if(id==null) throw new WrongParametersException("please enter id");
         if(CategoryServices.findByid(id)==null) throw new NoSuchEntryException("No such Entry Found");
         CategoryDto dto = CategoryServices.update(new CategoryDto(id,name,Timestamp.valueOf(LocalDateTime.now()),null));

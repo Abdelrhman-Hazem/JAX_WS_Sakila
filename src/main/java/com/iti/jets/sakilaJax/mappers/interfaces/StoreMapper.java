@@ -15,16 +15,16 @@ public interface StoreMapper {
 
     @AfterMapping
     default void linkStaffs(@MappingTarget Store store) {
-        store.getStaffs().forEach(staff -> staff.setStore(store));
+        if(store.getStaffs()!=null) store.getStaffs().forEach(staff -> staff.setStore(store));
     }
 
     @AfterMapping
     default void linkInventories(@MappingTarget Store store) {
-        store.getInventories().forEach(inventory -> inventory.setStore(store));
+        if(store.getInventories()!=null) store.getInventories().forEach(inventory -> inventory.setStore(store));
     }
 
     @AfterMapping
     default void linkCustomers(@MappingTarget Store store) {
-        store.getCustomers().forEach(customer -> customer.setStore(store));
+        if(store.getCustomers()!=null)  store.getCustomers().forEach(customer -> customer.setStore(store));
     }
 }

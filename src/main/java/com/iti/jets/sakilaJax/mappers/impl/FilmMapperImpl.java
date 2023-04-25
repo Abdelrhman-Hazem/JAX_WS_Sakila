@@ -11,8 +11,11 @@ import jakarta.inject.Inject;
 
 import javax.annotation.processing.Generated;
 import java.math.BigDecimal;
-import java.sql.Date;
+//import java.sql.Date;
 import java.sql.Timestamp;
+import java.time.Year;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -77,7 +80,7 @@ public class FilmMapperImpl implements FilmMapper {
         LanguageDto languageByOriginalLanguageId = null;
         String title = null;
         String description = null;
-        Date releaseYear = null;
+        Year releaseYear = null;
         byte rentalDuration = 0;
         BigDecimal rentalRate = null;
         Short length = null;
@@ -94,6 +97,9 @@ public class FilmMapperImpl implements FilmMapper {
         languageByOriginalLanguageId = languageToLanguageDto( film.getLanguageByOriginalLanguageId() );
         title = film.getTitle();
         description = film.getDescription();
+//        Calendar calendar = new GregorianCalendar();
+//        calendar.set(film.getReleaseYear(),1,1);
+//        releaseYear = new Date(calendar.getTime().getTime());
         releaseYear = film.getReleaseYear();
         rentalDuration = film.getRentalDuration();
         rentalRate = film.getRentalRate();

@@ -40,7 +40,7 @@ public class LanguageController {
 
     @PUT
     @Produces({"application/xml", "application/json"})
-    public Response UpdateLanguage(@FormParam("id")Short id,@FormParam("language")String language){
+    public Response updateLanguage(@FormParam("id")Short id,@FormParam("language")String language){
         if(id==null) throw new WrongParametersException("please enter id");
         if(LanguageServices.findByid(id)==null) throw new NoSuchEntryException("No such Entry Found");
         LanguageDto dto = LanguageServices.update(new LanguageDto(id,language,Timestamp.valueOf(LocalDateTime.now()),null,null));

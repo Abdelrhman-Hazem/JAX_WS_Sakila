@@ -11,6 +11,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.GenericEntity;
 import jakarta.ws.rs.core.Response;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @WebService
@@ -19,9 +20,8 @@ import java.util.List;
             parameterStyle = SOAPBinding.ParameterStyle.WRAPPED)
 public class ActorController {
 
-    public Response getAllActors (int page){
-        GenericEntity allList = new GenericEntity<List<ActorDto>>(ActorServices.findAllPaged(page*100-100,page*100)){};
-        return Response.ok(allList).build();
+    public ActorDto[] getAllActors (int page){
+        return ActorServices.findAllPaged(page*100-100,page*100).toArray(ActorDto[]::new);
     }
 
     public ActorDto getActorById (Short id){
@@ -32,24 +32,24 @@ public class ActorController {
     }
 
 
-    public Response addNewActor(String firstName, String lastName){
+    public ActorDto addNewActor(String firstName, String lastName){
         if(firstName==null || lastName ==null) throw new WrongParametersException("please enter firstName and lastName");
         ActorDto dto = ActorServices.insert(new ActorDto(null,firstName,lastName,null));
-        return Response.ok().entity(dto).build();
+        return dto;
     }
 
 
-    public Response UpdateActor(Short id,String firstName,  String lastName){
+    public ActorDto updateActor(Short id,String firstName,  String lastName){
         if(id==null) throw new WrongParametersException("please enter id");
         if(ActorServices.findByid(id)==null) throw new NoSuchEntryException("No such Entry Found");
         ActorDto dto = ActorServices.update(new ActorDto(id,firstName,lastName,null));
-        return Response.ok().entity(dto).build();
+        return dto;
     }
 
 
-    public Response deleteActorById (Short id){
+    public Boolean deleteActorById (Short id){
         Boolean isDeleted = ActorServices.deleteById(id);
         if(isDeleted==false)throw new DeleteFailedException("Unable to delete\n please check if id exists and delete dependents first");
-        return Response.status(Response.Status.ACCEPTED).build();
+        return true;
     }
 }

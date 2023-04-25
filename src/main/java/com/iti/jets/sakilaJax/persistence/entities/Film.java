@@ -16,8 +16,11 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import java.math.BigDecimal;
-import java.sql.Date;
+//import java.sql.Year;
 import java.sql.Timestamp;
+import java.time.Year;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -36,7 +39,7 @@ public class Film  implements java.io.Serializable {
      private Language languageByOriginalLanguageId;
      private String title;
      private String description;
-     private Date releaseYear;
+     private Year releaseYear;
      private byte rentalDuration;
      private BigDecimal rentalRate;
      private Short length;
@@ -60,7 +63,7 @@ public class Film  implements java.io.Serializable {
         this.replacementCost = replacementCost;
         this.lastUpdate = lastUpdate;
     }
-    public Film(Language languageByLanguageId, Language languageByOriginalLanguageId, String title, String description, Date releaseYear, byte rentalDuration, BigDecimal rentalRate, Short length, BigDecimal replacementCost, String rating, String specialFeatures, Timestamp lastUpdate, Set<Inventory> inventories , Set<FilmActor> filmActors, Set<FilmCategory> filmCategories) {
+    public Film(Language languageByLanguageId, Language languageByOriginalLanguageId, String title, String description, Year releaseYear, byte rentalDuration, BigDecimal rentalRate, Short length, BigDecimal replacementCost, String rating, String specialFeatures, Timestamp lastUpdate, Set<Inventory> inventories , Set<FilmActor> filmActors, Set<FilmCategory> filmCategories) {
        this.languageByLanguageId = languageByLanguageId;
        this.languageByOriginalLanguageId = languageByOriginalLanguageId;
        this.title = title;
@@ -132,11 +135,14 @@ public class Film  implements java.io.Serializable {
 
     @Temporal(TemporalType.DATE)
     @Column(name="release_year", length=4)
-    public Date getReleaseYear() {
+    public Year getReleaseYear() {
+//        Calendar calendar = new GregorianCalendar();
+//        calendar.setTime(releaseYear);
+//        return calendar.get(Calendar.YEAR);
         return this.releaseYear;
     }
     
-    public void setReleaseYear(Date releaseYear) {
+    public void setReleaseYear(Year releaseYear) {
         this.releaseYear = releaseYear;
     }
 

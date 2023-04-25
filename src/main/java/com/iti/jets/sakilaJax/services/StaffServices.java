@@ -20,10 +20,10 @@ public class StaffServices {
                 .collect(Collectors.toList());
     }
     public static StaffDto update(StaffDto dto){
-        return mapper.toDto(repo.updateOrInsertEntityById(mapper.toEntity(dto)));
+        return mapper.toDto(repo.updateOrInsertEntityById(mapper.partialUpdate(dto,repo.findById(dto.getStaffId()))));
     }
     public static StaffDto insert(StaffDto dto){
-        return mapper.toDto(repo.updateOrInsertEntityById(mapper.partialUpdate(dto,repo.findById(dto.getStaffId()))));
+        return mapper.toDto(repo.updateOrInsertEntityById(mapper.toEntity(dto)));
     }
     public static Boolean deleteById(Short id){
         return repo.deleteEntityById(id);

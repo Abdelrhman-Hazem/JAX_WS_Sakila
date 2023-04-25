@@ -29,9 +29,19 @@
             url-pattern="/webapi/soap/country" />
 
     <endpoint
+            name="FilmServices"
+            implementation="com.iti.jets.sakilaJax.controllers.soap.FilmController"
+            url-pattern="/webapi/soap/film" />
+
+    <endpoint
             name="LanguageServices"
             implementation="com.iti.jets.sakilaJax.controllers.soap.LanguageController"
             url-pattern="/webapi/soap/language" />
+
+    <endpoint
+            name="StaffServices"
+            implementation="com.iti.jets.sakilaJax.controllers.soap.StaffController "
+            url-pattern="/webapi/soap/staff" />
 
     <endpoint
             name="StoreServices"

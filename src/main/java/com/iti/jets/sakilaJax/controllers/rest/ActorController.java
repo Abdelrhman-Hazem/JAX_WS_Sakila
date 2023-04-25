@@ -38,7 +38,7 @@ public class ActorController {
 
     @PUT
     @Produces({"application/xml", "application/json"})
-    public Response UpdateActor(@FormParam("id")Short id,@FormParam("firstName")String firstName, @FormParam("lastName") String lastName){
+    public Response updateActor(@FormParam("id")Short id,@FormParam("firstName")String firstName, @FormParam("lastName") String lastName){
         if(id==null) throw new WrongParametersException("please enter id");
         if(ActorServices.findByid(id)==null) throw new NoSuchEntryException("No such Entry Found");
         ActorDto dto = ActorServices.update(new ActorDto(id,firstName,lastName,null));

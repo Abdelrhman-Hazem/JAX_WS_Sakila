@@ -6,6 +6,7 @@ import com.iti.jets.sakilaJax.controllers.exceptions.WrongParametersException;
 import com.iti.jets.sakilaJax.dtos.CityDto;
 import com.iti.jets.sakilaJax.dtos.CountryDto;
 import com.iti.jets.sakilaJax.services.CityServices;
+import com.iti.jets.sakilaJax.services.CountryServices;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.GenericEntity;
 import jakarta.ws.rs.core.Response;
@@ -35,17 +36,23 @@ public class CityController {
     @Produces({"application/xml", "application/json"})
     public Response addNewCity(@FormParam("city")String city, @FormParam("countryId")Short countryId){
         if(city==null || countryId==null) throw new WrongParametersException("please enter country");
-        CountryDto countryDto = new CountryDto(countryId,null,null,null);
+        CountryDto countryDto = CountryServices.findByid(countryId);
+
+        if(countryDto==null) throw new NoSuchEntryException("No Such Country");
+
         CityDto dto = CityServices.insert(new CityDto(null,countryDto,city, Timestamp.valueOf(LocalDateTime.now())));
         return Response.ok().entity(dto).build();
     }
 
     @PUT
     @Produces({"application/xml", "application/json"})
-    public Response UpdateCity(@FormParam("id")Short id,@FormParam("city")String city, @FormParam("countryId")Short countryId){
+    public Response updateCity(@FormParam("id")Short id,@FormParam("city")String city, @FormParam("countryId")Short countryId){
         if(id==null) throw new WrongParametersException("please enter id");
         if(CityServices.findByid(id)==null) throw new NoSuchEntryException("No such Entry Found");
-        CountryDto countryDto = new CountryDto(countryId,null,null,null);
+        CountryDto countryDto = CountryServices.findByid(countryId);
+
+        if(countryDto==null) throw new NoSuchEntryException("No Such Country");
+
         CityDto dto = CityServices.update(new CityDto(id,countryDto,city, Timestamp.valueOf(LocalDateTime.now())));
         return Response.ok().entity(dto).build();
     }

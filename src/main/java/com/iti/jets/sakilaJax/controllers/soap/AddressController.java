@@ -6,6 +6,7 @@ import com.iti.jets.sakilaJax.controllers.exceptions.WrongParametersException;
 import com.iti.jets.sakilaJax.dtos.AddressDto;
 import com.iti.jets.sakilaJax.dtos.CityDtoSimple;
 import com.iti.jets.sakilaJax.services.AddressServices;
+import com.iti.jets.sakilaJax.services.CityServices;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.ws.rs.*;
@@ -18,47 +19,54 @@ import java.util.Base64;
 import java.util.List;
 
 @WebService
-@SOAPBinding(style = SOAPBinding.Style.RPC, use = SOAPBinding.Use.ENCODED ,parameterStyle = SOAPBinding.ParameterStyle.WRAPPED)
+@SOAPBinding(style = SOAPBinding.Style.RPC,
+            use = SOAPBinding.Use.ENCODED ,
+            parameterStyle = SOAPBinding.ParameterStyle.WRAPPED)
 public class AddressController {
 
-    public Response getAllAddresss (int page){
-        GenericEntity allList = new GenericEntity<List<AddressDto>>(AddressServices.findAllPaged(page*100-100,page*100)){};
-        return Response.ok(allList).build();
+    public AddressDto[] getAllAddresss (int page){
+        return AddressServices.findAllPaged(page*100-100,page*100).toArray(AddressDto[]::new);
     }
 
-    public Response getAddressById (Short id){
+    public AddressDto getAddressById (Short id){
         AddressDto dto = AddressServices.findByid(id);
         if(dto==null)throw new NoSuchEntryException("No such Entry Found");
-        return Response.ok().entity(dto).build();
+        return dto;
     }
 
-    public Response addNewAddress(Short cityId, String address,
-                                  String address2, String district,
+    public AddressDto addNewAddress(Short cityId, String address,
+                                   String address2, String district,
                                   String postalCode, String phone,
                                   String location){
         if(cityId==null || address ==null || district==null ||
                 postalCode==null || phone==null || location==null) throw new WrongParametersException("please enter firstName and lastName");
+
+        if(CityServices.findByid(cityId)==null) throw new NoSuchEntryException("No Such City");
+
         CityDtoSimple cityDto = new CityDtoSimple(cityId,null);
         byte[] locationBytes = Base64.getDecoder().decode(location);
         AddressDto dto = AddressServices.insert(new AddressDto(null,cityDto,address,address2,district,postalCode,phone,locationBytes, Timestamp.valueOf(LocalDateTime.now())));
-        return Response.ok().entity(dto).build();
+        return dto;
     }
 
-    public Response UpdateAddress(Short id,Short cityId, String address,
+    public AddressDto updateAddress(Short id, Short cityId, String address,
                                   String address2, String district,
                                   String postalCode, String phone,
                                   String location){
         if(id==null) throw new WrongParametersException("please enter id");
         if(AddressServices.findByid(id)==null) throw new NoSuchEntryException("No such Entry Found");
+
+        if(CityServices.findByid(cityId)==null) throw new NoSuchEntryException("No Such City");
+
         CityDtoSimple cityDto = new CityDtoSimple(cityId,null);
         byte[] locationBytes = Base64.getDecoder().decode(location);
         AddressDto dto = AddressServices.update(new AddressDto(id,cityDto,address,address2,district,postalCode,phone,locationBytes, Timestamp.valueOf(LocalDateTime.now())));
-        return Response.ok().entity(dto).build();
+        return dto;
     }
 
-    public Response deleteAddressById (Short id){
+    public Boolean deleteAddressById (Short id){
         Boolean isDeleted = AddressServices.deleteById(id);
         if(isDeleted==false)throw new DeleteFailedException("Unable to delete\n please check if id exists and delete dependents first");
-        return Response.status(Response.Status.ACCEPTED).build();
+        return true;
     }
 }

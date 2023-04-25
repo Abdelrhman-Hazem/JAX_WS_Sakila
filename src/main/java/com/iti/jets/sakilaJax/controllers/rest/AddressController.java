@@ -7,6 +7,7 @@ import com.iti.jets.sakilaJax.dtos.AddressDto;
 import com.iti.jets.sakilaJax.dtos.CityDto;
 import com.iti.jets.sakilaJax.dtos.CityDtoSimple;
 import com.iti.jets.sakilaJax.services.AddressServices;
+import com.iti.jets.sakilaJax.services.CityServices;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.GenericEntity;
 import jakarta.ws.rs.core.Response;
@@ -46,6 +47,9 @@ public class AddressController {
                                   @FormParam("location") String location){
         if(cityId==null || address ==null || district==null ||
                 postalCode==null || phone==null || location==null) throw new WrongParametersException("please enter firstName and lastName");
+
+        if(CityServices.findByid(cityId)==null) throw new NoSuchEntryException("No Such City");
+
         CityDtoSimple cityDto = new CityDtoSimple(cityId,null);
         byte[] locationBytes = Base64.getDecoder().decode(location);
         AddressDto dto = AddressServices.insert(new AddressDto(null,cityDto,address,address2,district,postalCode,phone,locationBytes, Timestamp.valueOf(LocalDateTime.now())));
@@ -54,12 +58,15 @@ public class AddressController {
 
     @PUT
     @Produces({"application/xml", "application/json"})
-    public Response UpdateAddress(@FormParam("addressId")Short id, @FormParam("cityId")Short cityId, @FormParam("address") String address,
+    public Response updateAddress(@FormParam("addressId")Short id, @FormParam("cityId")Short cityId, @FormParam("address") String address,
                                   @FormParam("address2") String address2, @FormParam("district") String district,
                                   @FormParam("postalCode") String postalCode, @FormParam("phone") String phone,
                                   @FormParam("location") String location){
         if(id==null) throw new WrongParametersException("please enter id");
         if(AddressServices.findByid(id)==null) throw new NoSuchEntryException("No such Entry Found");
+
+        if(CityServices.findByid(cityId)==null) throw new NoSuchEntryException("No Such City");
+
         CityDtoSimple cityDto = new CityDtoSimple(cityId,null);
         byte[] locationBytes = Base64.getDecoder().decode(location);
         AddressDto dto = AddressServices.update(new AddressDto(id,cityDto,address,address2,district,postalCode,phone,locationBytes, Timestamp.valueOf(LocalDateTime.now())));

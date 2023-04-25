@@ -15,16 +15,16 @@ public interface FilmMapper {
 
     @AfterMapping
     default void linkInventories(@MappingTarget Film film) {
-        film.getInventories().forEach(inventory -> inventory.setFilm(film));
+        if(film.getInventories()!=null)film.getInventories().forEach(inventory -> inventory.setFilm(film));
     }
 
     @AfterMapping
     default void linkFilmActors(@MappingTarget Film film) {
-        film.getFilmActors().forEach(filmActor -> filmActor.setFilm(film));
+        if(film.getFilmActors()!=null)film.getFilmActors().forEach(filmActor -> filmActor.setFilm(film));
     }
 
     @AfterMapping
     default void linkFilmCategories(@MappingTarget Film film) {
-        film.getFilmCategories().forEach(filmCategory -> filmCategory.setFilm(film));
+        if(film.getFilmCategories()!=null)film.getFilmCategories().forEach(filmCategory -> filmCategory.setFilm(film));
     }
 }

@@ -6,6 +6,8 @@ import com.iti.jets.sakilaJax.controllers.exceptions.WrongParametersException;
 import com.iti.jets.sakilaJax.dtos.AddressDto;
 import com.iti.jets.sakilaJax.dtos.StaffDtoSimple;
 import com.iti.jets.sakilaJax.dtos.StoreDto;
+import com.iti.jets.sakilaJax.services.AddressServices;
+import com.iti.jets.sakilaJax.services.StaffServices;
 import com.iti.jets.sakilaJax.services.StoreServices;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.GenericEntity;
@@ -36,19 +38,27 @@ public class StoreController {
     @Produces({"application/xml", "application/json"})
     public Response addNewStore(@FormParam("managerId")Short managerId, @FormParam("addressId") Short addressId){
         if(managerId==null || addressId ==null) throw new WrongParametersException("please enter firstName and lastName");
+
+        if(StaffServices.findByid(managerId) == null) throw new NoSuchEntryException("No Such Store");
+        AddressDto addressDto = AddressServices.findByid(addressId);
+        if(addressDto ==null) throw new NoSuchEntryException("No Such Address");
+
         StaffDtoSimple manager = new StaffDtoSimple(true,managerId,null,null);
-        AddressDto addressDto = new AddressDto(addressId,null,null,null,null,null,null,null,null);
         StoreDto dto = StoreServices.insert(new StoreDto(null,manager,addressDto, Timestamp.valueOf(LocalDateTime.now()),null,null,null));
         return Response.ok().entity(dto).build();
     }
 
     @PUT
     @Produces({"application/xml", "application/json"})
-    public Response UpdateStore(@FormParam("id")Short id,@FormParam("managerId")Short managerId, @FormParam("addressId") Short addressId){
+    public Response updateStore(@FormParam("id")Short id,@FormParam("managerId")Short managerId, @FormParam("addressId") Short addressId){
         if(id==null) throw new WrongParametersException("please enter id");
         if(StoreServices.findByid(id)==null) throw new NoSuchEntryException("No such Entry Found");
+
+        if(StaffServices.findByid(managerId) == null) throw new NoSuchEntryException("No Such Store");
+        AddressDto addressDto = AddressServices.findByid(addressId);
+        if(addressDto ==null) throw new NoSuchEntryException("No Such Address");
+
         StaffDtoSimple manager = new StaffDtoSimple(true,managerId,null,null);
-        AddressDto addressDto = new AddressDto(addressId,null,null,null,null,null,null,null,null);
         StoreDto dto = StoreServices.update(new StoreDto(id,manager,addressDto, Timestamp.valueOf(LocalDateTime.now()),null,null,null));
         return Response.ok().entity(dto).build();
     }

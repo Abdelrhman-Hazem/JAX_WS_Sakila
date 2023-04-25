@@ -40,7 +40,7 @@ public class CountryController {
 
     @PUT
     @Produces({"application/xml", "application/json"})
-    public Response UpdateCountry(@FormParam("id")Short id,@FormParam("country")String country){
+    public Response updateCountry(@FormParam("id")Short id,@FormParam("country")String country){
         if(id==null) throw new WrongParametersException("please enter id");
         if(CountryServices.findByid(id)==null) throw new NoSuchEntryException("No such Entry Found");
         CountryDto dto = CountryServices.update(new CountryDto(id,country,Timestamp.valueOf(LocalDateTime.now()),null));

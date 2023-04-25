@@ -5,8 +5,9 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Date;
+//import java.sql.Year;
 import java.sql.Timestamp;
+import java.time.Year;
 import java.util.Objects;
 import java.util.Set;
 
@@ -20,7 +21,7 @@ public class FilmDto implements Serializable {
     private LanguageDto languageByOriginalLanguageId;
     private String title;
     private String description;
-    private Date releaseYear;
+    private Year releaseYear;
     private byte rentalDuration;
     private BigDecimal rentalRate;
     private Short length;
@@ -35,7 +36,7 @@ public class FilmDto implements Serializable {
     public FilmDto() {
     }
 
-    public FilmDto(Short filmId, LanguageDto languageByLanguageId, LanguageDto languageByOriginalLanguageId, String title, String description, Date releaseYear, byte rentalDuration, BigDecimal rentalRate, Short length, BigDecimal replacementCost, String rating, String specialFeatures, Timestamp lastUpdate, Set<InventoryDto> inventories, Set<FilmActorDto> filmActors, Set<FilmCategoryDto> filmCategories) {
+    public FilmDto(Short filmId, LanguageDto languageByLanguageId, LanguageDto languageByOriginalLanguageId, String title, String description, Year releaseYear, byte rentalDuration, BigDecimal rentalRate, Short length, BigDecimal replacementCost, String rating, String specialFeatures, Timestamp lastUpdate, Set<InventoryDto> inventories, Set<FilmActorDto> filmActors, Set<FilmCategoryDto> filmCategories) {
         this.filmId = filmId;
         this.languageByLanguageId = languageByLanguageId;
         this.languageByOriginalLanguageId = languageByOriginalLanguageId;
@@ -74,7 +75,7 @@ public class FilmDto implements Serializable {
         this.description = description;
     }
 
-    public void setReleaseYear(Date releaseYear) {
+    public void setReleaseYear(Year releaseYear) {
         this.releaseYear = releaseYear;
     }
 
@@ -138,7 +139,7 @@ public class FilmDto implements Serializable {
         return description;
     }
 
-    public Date getReleaseYear() {
+    public Year getReleaseYear() {
         return releaseYear;
     }
 
